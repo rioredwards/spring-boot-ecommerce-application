@@ -1,4 +1,4 @@
-package com.ecommerce.springbootecommerceapplication;
+package com.ecommerce.springbootecommerceapplication.models;
 
 import java.time.Instant;
 
@@ -23,11 +23,9 @@ public class Product {
     private Long id;
 
     @Setter
-    @NotBlank(message = "Name is required")
     private String name;
 
     @Setter
-    @NotBlank(message = "Price is required")
     private short price;
 
     @Setter
@@ -36,7 +34,13 @@ public class Product {
     @Setter
     private Instant modifiedDate;
 
-    public Product() {}
+    public Product() {
+        this("New Product", (short) 10);
+    }
+
+    public Product(String name) {
+        this(name, (short) 10);
+    }
 
     public Product(String name, short price) {
         this.name = name;
